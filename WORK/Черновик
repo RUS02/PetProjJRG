@@ -1,0 +1,17 @@
+
+
+
+RUN /bin/sh -c /etc/init.d/postgresql start && psql --command "CREATE DATABASE airflow_db;" && psql --command "CREATE USER airflow_user WITH PASSWORD 'airflow_pass';" && psql --command "GRANT ALL PRIVILEGES ON DATABASE airflow_db TO airflow_user;" && airflow db init && airflow users create --username AirflowAdmin -p airflow_pass --firstname name1 --lastname name2 --role Admin --email airflow@airflow.com && /etc/init.d/postgresql stop # buildkit
+
+RUN /bin/sh -c /etc/init.d/postgresql start && psql postgresql://jovyan:jovyan@localhost:5432/de -f /data/0_init_mart_tables.sql && /etc/init.d/postgresql stop # buildkit
+
+CREATE USER DE_ML_user WITH PASSWORD 'de_ml_pass';
+GRANT ALL PRIVILEGES ON DATABASE airflow_db TO DE_ML_user ;
+
+pip3 install scikit-learn
+
+AirflowAdmin 
+airflow_pass
+
+DE_ML_user/de_ml_pass
+AirflowAdmin airflow_pass

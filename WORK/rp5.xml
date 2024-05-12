@@ -1,0 +1,39 @@
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:media="http://search.yahoo.com/mrss/" xmlns:fh="http://purl.org/syndication/history/1.0" xmlns:fa="http://purl.org/atompub/age/1.0">
+<id>http://rp5.ru</id>
+<title xml:lang="ru">Погода в Москве (ВДНХ)</title>
+<subtitle>Погода в Москве (ВДНХ). Погода на неделю в Москве (ВДНХ). Погода на день в Москве (ВДНХ).</subtitle>
+<updated>2024-05-11T13:42:00+00:00</updated>
+<link rel="self" href="http://rp5.ru/rss/5483/ru"/>
+<author>
+<name>RP5</name>
+<email>support@rp5.ru</email>
+<uri>http://rp5.ru/docs/about/ru</uri>
+</author>
+<generator>http://rp5.ru</generator>
+<category xml:lang="ru" term="Погода"/>
+<logo>http://rp5.ru/images/ru/logo.png</logo>
+<rights xml:lang="ru">Copyright © ООО «Расписание Погоды», 2004-2024</rights>
+<fh:incremental>false</fh:incremental>
+<fa:max-age>10800000</fa:max-age>
+<entry>
+<id>http://rp5.ru/5483/ru#time_2024-05-11T13:42:00+00:00</id>
+<updated>2024-05-11T13:42:00+00:00</updated>
+<published>2024-05-11T13:42:00+00:00</published>
+<category xml:lang="ru" term="Погода"/>
+<title xml:lang="ru">В 16:42 на метеодатчиках</title>
+<link href="http://rp5.ru/5483/ru"/>
+<summary xml:lang="ru">
+на метеодатчиках
+<span class="was_t">было</span>
+в среднем
+<span class="t_0" style="display: inline;">+11.4</span>
+(
+<span class="t_0" style="display: inline;">+10.4</span>
+...
+<span class="t_0" style="display: inline;">+14.1</span>
+)
+<span class="t_0" style="display: inline;">°C</span>
+. В Москве (ВДНХ) завтра в 09:00 ожидается +4°C, без осадков, легкий ветер.
+</summary>
+</entry>
+</feed>
