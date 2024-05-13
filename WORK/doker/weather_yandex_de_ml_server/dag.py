@@ -26,6 +26,8 @@ X_col=['m0', 'm1', 'm2', 'm3', 'hh', 'T-3', 'T-2', 'T-1', 'T0']
 
 lr1 = pickle.load(open('/lessons/dags/ml/lr1.sav', 'rb')) 
 lr2 = pickle.load(open('/lessons/dags/ml/lr2.sav', 'rb')) 
+lr3 = pickle.load(open('/lessons/dags/ml/lr3.sav', 'rb')) 
+lr4 = pickle.load(open('/lessons/dags/ml/lr4.sav', 'rb')) 
 X_scale = pickle.load(open('/lessons/dags/ml/X_scale.sav', 'rb')) 
 y_scale = pickle.load(open('/lessons/dags/ml/y_scale.sav', 'rb')) 
 
@@ -64,6 +66,8 @@ def ml_weather(pg_schema, pg_table):
         #Строим прогноз
         t1=y_scale.inverse_transform(lr1.predict(PolynomialFeatures(3).fit_transform(X_scale.transform(df2))))[0]
         t2=y_scale.inverse_transform(lr2.predict(PolynomialFeatures(3).fit_transform(X_scale.transform(df2))))[0]
+        t3=y_scale.inverse_transform(lr3.predict(PolynomialFeatures(3).fit_transform(X_scale.transform(df2))))[0]
+        t4=y_scale.inverse_transform(lr4.predict(PolynomialFeatures(3).fit_transform(X_scale.transform(df2))))[0]
 
         for i in range(len(df.index)):
             his.write(df.region[i]+'\n')
@@ -75,6 +79,8 @@ def ml_weather(pg_schema, pg_table):
             fut.write(df.region[i]+'\n')
             fut.write(str(df.dt_max[i].to_pydatetime()+timedelta(hours=3))[:16]+' '+str(t1[i])[:4]+'\n')
             fut.write(str(df.dt_max[i].to_pydatetime()+timedelta(hours=6))[:16]+' '+str(t2[i])[:4]+'\n')
+            fut.write(str(df.dt_max[i].to_pydatetime()+timedelta(hours=9))[:16]+' '+str(t3[i])[:4]+'\n')
+            fut.write(str(df.dt_max[i].to_pydatetime()+timedelta(hours=12))[:16]+' '+str(t4[i])[:4]+'\n')
         
     his.close()
     fut.close()

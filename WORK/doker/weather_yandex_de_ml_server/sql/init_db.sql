@@ -53,7 +53,7 @@ CREATE OR REPLACE VIEW mart.ml_data
 AS WITH dt_max AS (
          SELECT dt_m.dt_max,
             date_part('month'::text, dt_m.dt_max) AS mm,
-            date_part('hour'::text, dt_m.dt_max) AS hh,
+            date_part('hour'::text, dt_m.dt_max - '09:00:00'::time without time zone::interval) AS hh,
             dt_m.region_id
            FROM ( SELECT max(dt) AS dt_max,
                     avg_temp.region_id
@@ -63,19 +63,19 @@ AS WITH dt_max AS (
  SELECT reg.region,
     dt_max.dt_max,
         CASE
-            WHEN dt_max.mm = ANY (ARRAY[12::double precision, 1::double precision, 2::double precision]) THEN 1
+            WHEN dt_max.mm in (12,1,2) THEN 1
             ELSE 0
         END AS m0,
         CASE
-            WHEN dt_max.mm = ANY (ARRAY[3::double precision, 4::double precision, 5::double precision]) THEN 1
+            WHEN dt_max.mm in (3,4,5) THEN 1
             ELSE 0
         END AS m1,
         CASE
-            WHEN dt_max.mm = ANY (ARRAY[6::double precision, 7::double precision, 8::double precision]) THEN 1
+            WHEN dt_max.mm in (6,7,8) THEN 1
             ELSE 0
         END AS m2,
         CASE
-            WHEN dt_max.mm = ANY (ARRAY[9::double precision, 10::double precision, 11::double precision]) THEN 1
+            WHEN dt_max.mm in (9,10,11) THEN 1
             ELSE 0
         END AS m3,
     dt_max.hh,
