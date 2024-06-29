@@ -1,5 +1,5 @@
-CREATE USER DE_ML_user WITH PASSWORD 'de_ml_pass';
-GRANT ALL PRIVILEGES ON DATABASE airflow_db TO DE_ML_user ;
+#CREATE USER DE_ML_user WITH PASSWORD 'de_ml_pass';
+#GRANT ALL PRIVILEGES ON DATABASE airflow_db TO DE_ML_user ;
 
 DROP SCHEMA if exists stage CASCADE;
 DROP SCHEMA if exists dds CASCADE;
